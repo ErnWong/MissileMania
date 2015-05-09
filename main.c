@@ -11,13 +11,10 @@
 #pragma userControlDuration(120)
 
 typedef enum {UP, DOWN} UpDown;
-//typedef enum {IN, OUT} InOut;
 typedef enum {TANK, ARCADE} DriveStyle;
 
 static bool const initial_belt_on = false;
-//static bool const initial_chute_open = false;
 static UpDown const initial_belt_direction = UP;
-//static InOut const initial_chute_direction = OUT;
 
 static DriveStyle const initial_drive_style = TANK;
 
