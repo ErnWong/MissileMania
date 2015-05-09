@@ -42,18 +42,18 @@ void pre_auton()
 
 task autonomous()
 {
-	AutonomousCodePlaceholderForTesting();
+  AutonomousCodePlaceholderForTesting();
 }
 
 task usercontrol()
 {
-	update_motors();
-	stop_moving();
+  update_motors();
+  stop_moving();
 
-	while (true)
-	{
-		update_drive();
-		check_buttons();
-		motor[chute_motor] = (vexRT(chute_pve_btn)? 50 : 0) + (vexRT(chute_nve_btn)? -50 : 0);
-	}
+  while (true)
+  {
+    update_drive();
+    check_buttons();
+    motor[chute_motor] = (vexRT(chute_pve_btn)? 50 : 0) + (vexRT(chute_nve_btn)? -50 : 0);
+  }
 }
