@@ -14,6 +14,7 @@ typedef enum {UP, DOWN} UpDown;
 typedef enum {TANK, ARCADE} DriveStyle;
 
 static bool const initial_belt_on = false;
+static bool const initial_chute_on = false;
 static UpDown const initial_belt_direction = UP;
 
 static DriveStyle const initial_drive_style = TANK;
@@ -54,6 +55,14 @@ task usercontrol()
   {
     update_drive();
     check_buttons();
-    motor[chute_motor] = (vexRT[chute_pve_btn]? 50 : 0) + (vexRT[chute_nve_btn]? -50 : 0);
+    if (!chute_on)
+    {
+    	motor[chute_motor] = (vexRT[chute_pve_btn]? 50 : 0) + (vexRT[chute_nve_btn]? -50 : 0);
+    }
+    if (vexRT[chute_pve_btn])
+    {
+    	belt_on = false;
+    	update_motors();
+    }
   }
 }
