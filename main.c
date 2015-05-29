@@ -18,16 +18,16 @@ static UpDown const initial_belt_direction = UP;
 
 static DriveStyle const initial_drive_style = TANK;
 
-static int const belt_btn = Btn7D;
-static int const belt_sign_btn = Btn7R;
-static int const chute_btn = Btn5D;
-static int const chute_pve_btn = Btn6U;
-static int const chute_nve_btn = Btn6D;
-static int const chute_sign_btn = Btn5D;
-static int const port_swap_btn = Btn8U;
-static int const drive_style_btn = Btn7U;
-static int const slow_mo_btn = Btn5U;
-static int const stop_all_btn = Btn5D;
+static TVexJoysticks const belt_btn = Btn7D;
+static TVexJoysticks const belt_sign_btn = Btn7R;
+static TVexJoysticks const chute_btn = Btn5D;
+static TVexJoysticks const chute_pve_btn = Btn6U;
+static TVexJoysticks const chute_nve_btn = Btn6D;
+static TVexJoysticks const chute_sign_btn = Btn5D;
+static TVexJoysticks const port_swap_btn = Btn8U;
+static TVexJoysticks const drive_style_btn = Btn7U;
+static TVexJoysticks const slow_mo_btn = Btn5U;
+static TVexJoysticks const stop_all_btn = Btn5D;
 
 #include "ports.h"
 #include "belt-chute.h"
@@ -54,6 +54,6 @@ task usercontrol()
   {
     update_drive();
     check_buttons();
-    motor[chute_motor] = (vexRT(chute_pve_btn)? 50 : 0) + (vexRT(chute_nve_btn)? -50 : 0);
+    motor[chute_motor] = (vexRT[chute_pve_btn]? 50 : 0) + (vexRT[chute_nve_btn]? -50 : 0);
   }
 }

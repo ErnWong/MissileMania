@@ -2,7 +2,7 @@
 void name()                                    \
 {                                              \
   static int previous = 0;                     \
-  int current = vexRT(button);                 \
+  int current = vexRT[button];                 \
   if (current != previous && current == 1)     \
   {                                            \
     callback();                                \

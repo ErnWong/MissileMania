@@ -3,12 +3,12 @@ DriveStyle current_drive_style = initial_drive_style;
 
 void motor_left(int power)
 {
-  motor[left_motor] = power / (vexRT(slow_mo_btn)? 3 : 1);
+  motor[left_motor] = power / (vexRT[slow_mo_btn]? 3 : 1);
 }
 
 void motor_right(int power)
 {
-  motor[right_motor] = power / (vexRT(slow_mo_btn)? 3 : 1);
+  motor[right_motor] = power / (vexRT[slow_mo_btn]? 3 : 1);
 }
 
 void stop_moving()
@@ -38,12 +38,12 @@ void update_drive()
   switch (current_drive_style)
   {
     case TANK:
-      left = vexRT(Ch3);
-      right = vexRT(Ch2);
+      left = vexRT[Ch3];
+      right = vexRT[Ch2];
       break;
     case ARCADE:
-      left = vexRT(Ch2) + vexRT(Ch1);
-      right = vexRT(Ch2) - vexRT(Ch1);
+      left = vexRT[Ch2] + vexRT[Ch1];
+      right = vexRT[Ch2] - vexRT[Ch1];
       break;
   }
   motor_left(left);
