@@ -55,6 +55,11 @@ task usercontrol()
   {
     update_drive();
     check_buttons();
+    if (vexRT[chute_pve_btn] || vexRT[chute_nve_btn])
+    {
+    	chute_on = false;
+    	update_motors();
+    }
     if (!chute_on)
     {
     	motor[chute_motor] = (vexRT[chute_pve_btn]? 50 : 0) + (vexRT[chute_nve_btn]? -50 : 0);
