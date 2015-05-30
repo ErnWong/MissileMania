@@ -22,10 +22,24 @@ void lift_chute()
   motor[chute_motor] = 0;
 }
 
+task restart_belt()
+{
+	wait1Msec(400);
+	belt_on = true;
+	update_motors();
+}
+
 void toggle_chute()
 {
 	chute_on = !chute_on;
-	belt_on = !chute_on;
+	if (!chute_on)
+	{
+		startTask(restart_belt);
+	}
+	else
+	{
+		belt_on = false;
+	}
 	update_motors();
 }
 
